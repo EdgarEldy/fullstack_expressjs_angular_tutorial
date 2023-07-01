@@ -15,5 +15,8 @@
     "sequelize": "^6.32.1"
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
 }
