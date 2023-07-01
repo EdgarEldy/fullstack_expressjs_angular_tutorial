@@ -132,3 +132,6 @@ dist
 
 # yarn.lock
 yarn.lock
+
+# idea files
+.idea
