@@ -10,5 +10,18 @@ router.get('/categories', async (req, res, next) => {
     return res.json(categories);
 });
 
+// Add a new category api
+router.post('/categories', (req, res, next) => {
+    const category = {
+        category_name: req.body.category_name,
+    };
+
+    Category.create(category).then((data) => {
+        res.send(category.category_name + ' has been created successfully !');
+    }).catch((err) => {
+        res.send('Error');
+    });
+});
+
 // Export categories endpoints
 module.exports = router;
