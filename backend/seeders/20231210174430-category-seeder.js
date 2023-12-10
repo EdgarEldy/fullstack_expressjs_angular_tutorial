@@ -14,7 +14,7 @@ module.exports = {
          */
 
         // Add categories data for testing
-        await queryInterface.bulkInsert('categories', [
+        await queryInterface.bulkInsert('Categories', [
             {
                 category_name: "Lemonades",
                 createdAt: new Date(),
@@ -35,6 +35,6 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('categories', {})
+        await queryInterface.bulkDelete('Categories', {})
     }
 };
