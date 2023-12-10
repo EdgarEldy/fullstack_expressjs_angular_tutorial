@@ -23,5 +23,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.get('/categories', categoriesRouter);
 app.post('/categories', categoriesRouter);
+app.get('/categories/:id', categoriesRouter);
 
 module.exports = app;
