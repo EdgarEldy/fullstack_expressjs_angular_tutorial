@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 // categories routes
-var categories = require('./routes/categories');
+var categoriesRouter = require('./routes/categories');
 
 var app = express();
 
@@ -21,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.get('/categories', categoriesRouter);
 
 module.exports = app;
