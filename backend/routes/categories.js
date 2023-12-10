@@ -60,5 +60,23 @@ router.put("/categories/edit/:id", function (req, res, next) {
 
 });
 
+// Remove a category
+router.delete('/categories/:id', (req, res, next) => {
+
+    const id = req.params.id;
+
+    Category.destroy({
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            res.send('Category has been removed successfully !');
+        })
+        .catch((error) => {
+            res.send('Error');
+        });
+});
+
 // Export categories endpoints
 module.exports = router;
