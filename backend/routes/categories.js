@@ -16,11 +16,25 @@ router.post('/categories', (req, res, next) => {
         category_name: req.body.category_name,
     };
 
-    Category.create(category).then((data) => {
-        res.send(category.category_name + ' has been created successfully !');
-    }).catch((err) => {
-        res.send('Error');
-    });
+    Category.create(category)
+        .then((data) => {
+            res.send(category.category_name + ' has been created successfully !');
+        })
+        .catch((err) => {
+            res.send('Error');
+        });
+});
+
+// Get category by id
+router.get('/categories/:id', (req, res, next) => {
+    const id = req.params.id;
+    Category.findByPk(id)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            res.send('Category not found');
+        });
 });
 
 // Export categories endpoints
