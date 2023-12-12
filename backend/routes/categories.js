@@ -18,7 +18,9 @@ router.post('/categories', (req, res, next) => {
 
     Category.create(category)
         .then((data) => {
-            res.send(category.category_name + ' has been created successfully !');
+            res.send({
+                message: category.category_name + ' has been created successfully !'
+            });
         })
         .catch((err) => {
             res.send('Error');
@@ -30,10 +32,16 @@ router.get('/categories/:id', (req, res, next) => {
     const id = req.params.id;
     Category.findByPk(id)
         .then((data) => {
-            res.send(data);
+            if (!data) {
+                res.status(404).send({
+                    message: "Can not found category with id " + id
+                });
+            } else res.send(data);
         })
         .catch((error) => {
-            res.send('Category not found');
+            res.send({
+                message: 'Category not found'
+            });
         });
 });
 
@@ -48,11 +56,13 @@ router.put("/categories/edit/:id", function (req, res, next) {
         }
     })
         .then((data) => {
-            if (data === 1) {
-                res.send(data);
-            } else {
-                res.send("Category has been updated successfully ")
-            }
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update category with id=${id} !`
+                });
+            } else res.send({
+                message: 'Category has been updated successfully !'
+            });
         })
         .catch((err) => {
             res.send("Error")
@@ -71,7 +81,13 @@ router.delete('/categories/:id', (req, res, next) => {
         }
     })
         .then((data) => {
-            res.send('Category has been removed successfully !');
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot delete category with id = ${id}. Category was not found!`
+                });
+            } else res.send({
+                message: 'Category was deleted successfully!'
+            });
         })
         .catch((error) => {
             res.send('Error');
