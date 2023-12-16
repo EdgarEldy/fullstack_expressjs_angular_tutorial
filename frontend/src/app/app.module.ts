@@ -10,6 +10,7 @@ import { TopbarComponent } from './shared/topbar/topbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
+import { CategoryFormComponent } from './pages/categories/category-form/category-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CategoryListComponent } from './pages/categories/category-list/category
     SidebarComponent,
     TopbarComponent,
     FooterComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
