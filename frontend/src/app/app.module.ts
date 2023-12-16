@@ -4,16 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { NavComponent } from './shared/nav/nav.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TopbarComponent } from './shared/topbar/topbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavComponent,
-    SidebarComponent
+    SidebarComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
