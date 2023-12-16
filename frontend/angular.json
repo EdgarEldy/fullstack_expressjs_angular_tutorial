@@ -26,12 +26,18 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/assets/css/all.css",
               "src/assets/css/bootstrap.min.css",
-              "src/assets/css/styles.css"
+              "src/assets/css/sb-admin-2.min.css",
+              "src/assets/css/dataTables.bootstrap4.min.css",
+              "src/assets/css/main.css"
             ],
             "scripts": [
-              "src/assets/js/jquery-3.4.1.min.js",
-              "src/assets/js/bootstrap.min.js"
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/dataTables.min.js",
+              "src/assets/js/dataTables.bootstrap4.min.js",
+              "src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
