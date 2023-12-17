@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from '../../../models/category';
 
 @Component({
   selector: 'app-category-list',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent {
+  // Initialize categories array
+  categories?: Category[];
 
+  // Initialize category object
+  category: Category = {
+    id: '',
+    category_name: ''
+  };
 }
