@@ -23,6 +23,19 @@ export class CategoryListComponent {
 
   // ngOnInit
   ngOnInit() {
+    this.loadCategories();
+  }
 
+  // Load categories
+  loadCategories() {
+    this.categoryService.getAll().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.categories = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 }
