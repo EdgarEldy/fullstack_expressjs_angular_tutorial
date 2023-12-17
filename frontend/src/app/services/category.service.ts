@@ -22,4 +22,9 @@ export class CategoryService {
   get(id: any): Observable<Category> {
     return this.http.get<Category>(`${this.apiUrl}/id`);
   }
+
+  // Create a new category
+  create(data: any): Observable<any> {
+    return this.http.post(this.apiUrl, data);
+  }
 }
