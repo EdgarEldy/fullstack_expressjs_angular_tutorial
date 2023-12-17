@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Category } from '../../../models/category';
 import { CategoryService } from '../../../services/category.service';
+import { CategoryFormComponent } from '../category-form/category-form.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-category-list',
@@ -18,7 +20,7 @@ export class CategoryListComponent {
   };
 
   // Constructor
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService, private modalService: NgbModal) {
   }
 
   // ngOnInit
@@ -37,5 +39,26 @@ export class CategoryListComponent {
         console.log(err);
       }
     });
+  }
+
+  /*
+  * This modal allows to open CategoryForm modal
+  * We can create or update a category with the same modal form
+   */
+  openCategoryModal(category?: Category) {
+    // Open your Bootstrap modal and pass the category to it
+    const modalRef = this.modalService.open(CategoryFormComponent);
+    modalRef.componentInstance.category = category;
+
+    // Subscribe to the modal's result
+    modalRef.result.then(
+      (result) => {
+        // Handle the result if needed
+        this.loadCategories();
+      },
+      (reason) => {
+        // Handle dismissal or other closing reasons
+      }
+    );
   }
 }
