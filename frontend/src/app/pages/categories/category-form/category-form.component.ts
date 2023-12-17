@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Category } from '../../../models/category';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-category-form',
@@ -12,4 +14,7 @@ export class CategoryFormComponent {
     id: '',
     category_name: ''
   };
+
+  constructor(private categoryService: CategoryService, public activeModal: NgbActiveModal) {
+  }
 }
