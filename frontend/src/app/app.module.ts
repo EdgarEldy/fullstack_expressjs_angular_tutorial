@@ -11,6 +11,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
 import { CategoryFormComponent } from './pages/categories/category-form/category-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CategoryFormComponent } from './pages/categories/category-form/category
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
