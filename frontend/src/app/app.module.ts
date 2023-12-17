@@ -8,6 +8,10 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopbarComponent } from './shared/topbar/topbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HttpClientModule } from "@angular/common/http";
+import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
+import { CategoryFormComponent } from './pages/categories/category-form/category-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import { FooterComponent } from './shared/footer/footer.component';
     DashboardComponent,
     SidebarComponent,
     TopbarComponent,
-    FooterComponent
+    FooterComponent,
+    CategoryListComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
