@@ -20,11 +20,16 @@ export class CategoryService {
 
   // Get category details by id
   get(id: any): Observable<Category> {
-    return this.http.get<Category>(`${this.apiUrl}/id`);
+    return this.http.get<Category>(`${this.apiUrl}/${id}`);
   }
 
   // Create a new category
   create(data: any): Observable<any> {
     return this.http.post(this.apiUrl, data);
+  }
+
+  // Update an existing category
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
   }
 }
