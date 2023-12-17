@@ -20,4 +20,9 @@ export class CategoryListComponent {
   // Constructor
   constructor(private categoryService: CategoryService) {
   }
+
+  // ngOnInit
+  ngOnInit() {
+
+  }
 }
