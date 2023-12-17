@@ -66,4 +66,11 @@ export class CategoryListComponent {
       }
     );
   }
+
+  // Edit a category
+  async editCategory(id: number) {
+    await this.categoryService.get(id).subscribe(category => {
+      this.openCategoryModal(category);
+    });
+  }
 }
