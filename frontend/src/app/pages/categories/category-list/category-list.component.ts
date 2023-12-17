@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from '../../../models/category';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -15,4 +16,8 @@ export class CategoryListComponent {
     id: '',
     category_name: ''
   };
+
+  // Constructor
+  constructor(private categoryService: CategoryService) {
+  }
 }
