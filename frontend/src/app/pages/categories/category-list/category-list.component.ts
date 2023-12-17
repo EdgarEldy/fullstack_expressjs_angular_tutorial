@@ -73,4 +73,13 @@ export class CategoryListComponent {
       this.openCategoryModal(category);
     });
   }
+
+  // Remove a category
+  async deleteCategory(id: number) {
+    if (confirm('Are you sure you want to delete this category?')) {
+      await this.categoryService.delete(id).subscribe(() => {
+        this.loadCategories();
+      });
+    }
+  }
 }
