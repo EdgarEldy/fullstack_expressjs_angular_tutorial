@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Category } from '../../../models/category';
 
 @Component({
   selector: 'app-category-form',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./category-form.component.css']
 })
 export class CategoryFormComponent {
-
+  // Initialize category object
+  @Input() category: Category = {
+    id: '',
+    category_name: ''
+  };
 }
