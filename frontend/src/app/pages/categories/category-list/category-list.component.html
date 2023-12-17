@@ -2,7 +2,8 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-2 text-gray-800">
-      <button type="button" (click)="openCategoryModal(category)" class="btn btn-primary btn-sm text-white btn-add-category">
+      <button type="button" (click)="openCategoryModal(category)"
+              class="btn btn-primary btn-sm text-white btn-add-category">
         <i class="fas fa-plus mr-1"></i>New
       </button>
     </h1>
@@ -25,7 +26,7 @@
             <td>
               <button class="btn btn-primary btn-sm" (click)="editCategory(category.id)">Edit</button>
               |
-              <button class="btn btn-danger btn-sm">Remove</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.id)">Remove</button>
             </td>
           </tr>
           </tbody>
