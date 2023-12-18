@@ -30,4 +30,8 @@ app.get('/categories/:id', categoriesRouter);
 app.put('/categories/:id', categoriesRouter);
 app.delete('/categories/:id', categoriesRouter);
 
+// Products routers
+app.get('/products', productsRouter);
+
+
 module.exports = app;
