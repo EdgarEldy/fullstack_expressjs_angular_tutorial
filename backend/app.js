@@ -35,5 +35,6 @@ app.get('/products', productsRouter);
 app.post('/products', productsRouter);
 app.get('/products/:id', productsRouter);
 app.put('/products/:id', productsRouter);
+app.delete('/products/:id', productsRouter);
 
 module.exports = app;
