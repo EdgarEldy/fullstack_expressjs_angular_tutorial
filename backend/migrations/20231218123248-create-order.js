@@ -10,9 +10,11 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             customer_id: {
+                foreignKey: true,
                 type: Sequelize.INTEGER
             },
             product_id: {
+                foreignKey: true,
                 type: Sequelize.INTEGER
             },
             qty: {
