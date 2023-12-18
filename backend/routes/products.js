@@ -20,5 +20,28 @@ router.get('/products', async (req, res, next) => {
     return res.json(products);
 });
 
+// Create a new product
+router.post('/products', async (req, res, next) => {
+    // Create product object
+    const product = {
+        category_id: req.body.category_id,
+        product_name: req.body.product_name,
+        unit_price: req.body.unit_price
+    };
+
+    // Save a new product
+    Product.create(product)
+        .then((data) => {
+            res.send({
+                message: product.product_name + ' has been created successfully !'
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while creating product !'
+            });
+        })
+});
+
 //Exports categories routes
 module.exports = router;
