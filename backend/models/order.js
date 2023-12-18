@@ -2,6 +2,7 @@
 const {
     Model
 } = require('sequelize');
+const {Cast} = require("sequelize/lib/utils");
 module.exports = (sequelize, DataTypes) => {
     class Order extends Model {
         /**
@@ -11,6 +12,15 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Order.belongsTo(models.Customer, {
+                foreignKey: 'customer_id',
+                onDelete: 'CASCADE'
+            });
+
+            Order.belongsTo(models.Product, {
+                foreignKey: 'product_id',
+                onDelete: 'CASCADE'
+            });
         }
     }
 
