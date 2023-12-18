@@ -62,5 +62,33 @@ router.get('/products/:id', (req, res, next) => {
         });
 });
 
+// Update a product
+router.put('/products/:id', async (req, res, next) => {
+
+    const id = req.params.id;
+
+    await Product.update(req.body, {
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update product with id=${id} !`
+                });
+            } else res.send({
+                message: 'Product has been updated successfully !'
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while updating product !'
+            });
+        });
+
+});
+
+
 //Exports categories routes
 module.exports = router;
