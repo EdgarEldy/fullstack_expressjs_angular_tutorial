@@ -89,6 +89,31 @@ router.put('/products/:id', async (req, res, next) => {
 
 });
 
+// Remove a product
+router.delete('/products/:id', (req, res, next) => {
 
-//Exports categories routes
+    const id = req.params.id;
+
+    Product.destroy({
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot delete product with id = ${id}. Product was not found!`
+                });
+            } else res.status(201).send({
+                message: 'Product was deleted successfully!'
+            });
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Error while removing product !'
+            });
+        });
+});
+
+//Exports products routes
 module.exports = router;
