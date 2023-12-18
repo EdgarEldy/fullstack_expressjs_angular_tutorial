@@ -43,5 +43,24 @@ router.post('/products', async (req, res, next) => {
         })
 });
 
+// Get product by id
+router.get('/products/:id', (req, res, next) => {
+    const id = req.params.id;
+
+    Product.findByPk(id)
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: "Can not found product with id " + id
+                });
+            } else res.send(data);
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Product not found'
+            });
+        });
+});
+
 //Exports categories routes
 module.exports = router;
