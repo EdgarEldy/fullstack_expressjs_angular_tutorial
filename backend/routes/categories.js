@@ -23,7 +23,9 @@ router.post('/categories', (req, res, next) => {
             });
         })
         .catch((err) => {
-            res.send('Error');
+            res.status(500).send({
+                message: 'Error while creating category !'
+            });
         });
 });
 
@@ -39,7 +41,7 @@ router.get('/categories/:id', (req, res, next) => {
             } else res.send(data);
         })
         .catch((error) => {
-            res.send({
+            res.status(500).send({
                 message: 'Category not found'
             });
         });
@@ -65,7 +67,9 @@ router.put("/categories/:id", function (req, res, next) {
             });
         })
         .catch((err) => {
-            res.send("Error")
+            res.status(500).send({
+                message: 'Error while updating category !'
+            });
         });
 
 });
@@ -85,12 +89,14 @@ router.delete('/categories/:id', (req, res, next) => {
                 res.status(404).send({
                     message: `Cannot delete category with id = ${id}. Category was not found!`
                 });
-            } else res.send({
+            } else res.status(201).send({
                 message: 'Category was deleted successfully!'
             });
         })
         .catch((error) => {
-            res.send('Error');
+            res.status(500).send({
+                message: 'Error while removing category !'
+            });
         });
 });
 
