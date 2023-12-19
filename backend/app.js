@@ -43,5 +43,6 @@ app.delete('/products/:id', productsRouter);
 // Customers routes
 app.get('/customers', customersRouter);
 app.post('/customers', customersRouter);
+app.get('/customers/:id', customersRouter);
 
 module.exports = app;
