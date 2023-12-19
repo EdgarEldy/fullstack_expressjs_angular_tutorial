@@ -10,5 +10,29 @@ router.get('/customers', async (req, res, next) => {
     return res.json(customers);
 });
 
+// Add a new customer api
+router.post('/customers', (req, res, next) => {
+    // Get customer's inputs
+    const customer = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        tel: req.body.tel,
+        email: req.body.email,
+        address: req.body.address,
+    };
+
+    Customer.create(customer)
+        .then((data) => {
+            res.send({
+                message: `Customer ${customer.first_name} ${customer.last_name} has been created successfully !`
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while creating customer !'
+            });
+        });
+});
+
 // Exports customers routes
 module.exports = router;
