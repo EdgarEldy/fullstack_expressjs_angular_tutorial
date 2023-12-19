@@ -40,4 +40,7 @@ app.get('/products/:id', productsRouter);
 app.put('/products/:id', productsRouter);
 app.delete('/products/:id', productsRouter);
 
+// Customers routes
+app.get('/customers', customersRouter);
+
 module.exports = app;
