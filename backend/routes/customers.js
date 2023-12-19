@@ -34,5 +34,23 @@ router.post('/customers', (req, res, next) => {
         });
 });
 
+// Get customer by id
+router.get('/customers/:id', (req, res, next) => {
+    const id = req.params.id;
+    Customer.findByPk(id)
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: "Can not found customer with id " + id
+                });
+            } else res.send(data);
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Customer found'
+            });
+        });
+});
+
 // Exports customers routes
 module.exports = router;
