@@ -45,5 +45,6 @@ app.get('/customers', customersRouter);
 app.post('/customers', customersRouter);
 app.get('/customers/:id', customersRouter);
 app.put('/customers/:id', customersRouter);
+app.delete('/customers/:id', customersRouter);
 
 module.exports = app;
