@@ -79,5 +79,31 @@ router.put("/customers/:id", function (req, res, next) {
 
 });
 
+// Remove a customer
+router.delete('/customers/:id', (req, res, next) => {
+
+    const id = req.params.id;
+
+    Customer.destroy({
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot delete customer with id ${id}. Customer was not found!`
+                });
+            } else res.status(201).send({
+                message: 'Customer was deleted successfully!'
+            });
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Error while removing customer !'
+            });
+        });
+});
+
 // Exports customers routes
 module.exports = router;
