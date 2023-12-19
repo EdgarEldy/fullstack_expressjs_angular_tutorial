@@ -10,6 +10,9 @@ var usersRouter = require('./routes/users');
 // categories routes
 var categoriesRouter = require('./routes/categories');
 
+// products routes
+var productsRouter = require('./routes/products');
+
 var app = express();
 
 app.use(cors());
@@ -26,5 +29,12 @@ app.post('/categories', categoriesRouter);
 app.get('/categories/:id', categoriesRouter);
 app.put('/categories/:id', categoriesRouter);
 app.delete('/categories/:id', categoriesRouter);
+
+// Products routers
+app.get('/products', productsRouter);
+app.post('/products', productsRouter);
+app.get('/products/:id', productsRouter);
+app.put('/products/:id', productsRouter);
+app.delete('/products/:id', productsRouter);
 
 module.exports = app;
