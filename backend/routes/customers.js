@@ -52,5 +52,32 @@ router.get('/customers/:id', (req, res, next) => {
         });
 });
 
+// Update a customer
+router.put("/customers/:id", function (req, res, next) {
+
+    const id = req.params.id;
+
+    Customer.update(req.body, {
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update customer with id=${id} !`
+                });
+            } else res.send({
+                message: 'Customer has been updated successfully !'
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while updating customer !'
+            });
+        });
+
+});
+
 // Exports customers routes
 module.exports = router;
