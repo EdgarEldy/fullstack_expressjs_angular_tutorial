@@ -69,5 +69,30 @@ router.get('/orders/:id', (req, res, next) => {
         });
 });
 
+// Update an existing order
+router.put('/orders/:id', async (req, res, next) => {
+
+    const id = req.params.id;
+
+    await Order.update(req.body, {
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update order with id=${id} !`
+                });
+            } else res.send({
+                message: 'Order has been updated successfully !'
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while updating order !'
+            });
+        });
+});
 
 module.exports = router;
