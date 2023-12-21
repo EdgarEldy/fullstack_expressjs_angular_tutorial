@@ -16,6 +16,9 @@ var productsRouter = require('./routes/products');
 // customers routes
 var customersRouter = require('./routes/customers');
 
+// orders routes
+var ordersRouter = require('./routes/orders');
+
 var app = express();
 
 app.use(cors());
@@ -46,5 +49,8 @@ app.post('/customers', customersRouter);
 app.get('/customers/:id', customersRouter);
 app.put('/customers/:id', customersRouter);
 app.delete('/customers/:id', customersRouter);
+
+// Orders routes
+app.get('/orders', ordersRouter);
 
 module.exports = app;
