@@ -50,5 +50,24 @@ router.post('/orders', async (req, res, next) => {
         })
 });
 
+// Get order details
+router.get('/orders/:id', (req, res, next) => {
+    const id = req.params.id;
+
+    Order.findByPk(id)
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: "Can not found order with id " + id
+                });
+            } else res.send(data);
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Order not found'
+            });
+        });
+});
+
 
 module.exports = router;
