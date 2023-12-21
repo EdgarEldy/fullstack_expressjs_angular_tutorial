@@ -26,4 +26,29 @@ router.get('/orders', async (req, res, next) => {
     return res.json(orders);
 });
 
+// Add a new order
+router.post('/orders', async (req, res, next) => {
+    // Create product object
+    const order = {
+        customer_id: req.body.customer_id,
+        product_id: req.body.product_id,
+        qty: req.body.qty,
+        total: req.body.total
+    };
+
+    // Save a new order
+    Order.create(order)
+        .then((data) => {
+            res.send({
+                message: 'Order has been created successfully !'
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error while creating order !'
+            });
+        })
+});
+
+
 module.exports = router;
