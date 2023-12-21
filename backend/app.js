@@ -55,5 +55,6 @@ app.get('/orders', ordersRouter);
 app.post('/orders', ordersRouter);
 app.get('/orders/:id', ordersRouter);
 app.put('/orders/:id', ordersRouter);
+app.delete('/orders/:id', ordersRouter);
 
 module.exports = app;
