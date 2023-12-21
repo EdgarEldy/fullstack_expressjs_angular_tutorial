@@ -95,4 +95,30 @@ router.put('/orders/:id', async (req, res, next) => {
         });
 });
 
+// Remove an order
+router.delete('/orders/:id', (req, res, next) => {
+
+    const id = req.params.id;
+
+    Order.destroy({
+        where: {
+            id: id
+        }
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot delete order with id ${id}. Order was not found!`
+                });
+            } else res.status(201).send({
+                message: 'Order was deleted successfully!'
+            });
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: 'Error while removing order !'
+            });
+        });
+});
+
 module.exports = router;
