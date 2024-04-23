@@ -15,9 +15,14 @@ export class ProductListComponent {
 
   // Initialize product object
   product: Product = {
+    id: 0,
     category_id: 0,
-    id: 0, product_name: '',
-    unit_price: 0
+    product_name: '',
+    unit_price: 0,
+    Category: {
+      id: 0,
+      category_name: ''
+    }
   };
 
   // Constructor
@@ -26,5 +31,22 @@ export class ProductListComponent {
     private readonly modalService: NgbModal,
     private readonly toastr: ToastrService
   ) {
+  }
+
+  ngOnInit() {
+    this.loadProducts();
+  }
+
+  // Load products
+  loadProducts() {
+    this.productService.getAll().subscribe({
+      next: (data: Product[]): void => {
+        console.log(data);
+        this.products = data;
+      },
+      error: (err): void => {
+        console.log(err);
+      }
+    })
   }
 }
