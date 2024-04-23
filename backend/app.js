@@ -24,11 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('/categories', categoriesRouter);
-app.post('/categories', categoriesRouter);
-app.get('/categories/:id', categoriesRouter);
-app.put('/categories/:id', categoriesRouter);
-app.delete('/categories/:id', categoriesRouter);
+app.get('/api/categories', categoriesRouter);
+app.post('/api/categories', categoriesRouter);
+app.get('/api/categories/:id', categoriesRouter);
+app.put('/api/categories/:id', categoriesRouter);
+app.delete('/api/categories/:id', categoriesRouter);
 
 // Products routers
 app.get('/api/products', productsRouter);
