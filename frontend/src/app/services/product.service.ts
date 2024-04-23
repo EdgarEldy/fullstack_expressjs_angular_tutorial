@@ -22,4 +22,9 @@ export class ProductService {
   get(id: any): Observable<Product> {
     return this.http.get<Product>(`${this.baseUrl}/${id}`);
   }
+
+  // Create a new product
+  create(data: any): Observable<any> {
+    return this.http.post<Product>(this.baseUrl, data);
+  }
 }
