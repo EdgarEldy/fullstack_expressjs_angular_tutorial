@@ -9,7 +9,7 @@ const Product = db.Product;
 const Order = db.Order;
 
 // Get all orders with customers and products api route
-router.get('/orders', async (req, res, next) => {
+router.get('/api/orders', async (req, res, next) => {
     const orders = await Order.findAll({
         include: [
             {
@@ -27,7 +27,7 @@ router.get('/orders', async (req, res, next) => {
 });
 
 // Add a new order
-router.post('/orders', async (req, res, next) => {
+router.post('/api/orders', async (req, res, next) => {
     // Create product object
     const order = {
         customer_id: req.body.customer_id,
@@ -51,7 +51,7 @@ router.post('/orders', async (req, res, next) => {
 });
 
 // Get order details
-router.get('/orders/:id', (req, res, next) => {
+router.get('/api/orders/:id', (req, res, next) => {
     const id = req.params.id;
 
     Order.findByPk(id)
@@ -70,7 +70,7 @@ router.get('/orders/:id', (req, res, next) => {
 });
 
 // Update an existing order
-router.put('/orders/:id', async (req, res, next) => {
+router.put('/api/orders/:id', async (req, res, next) => {
 
     const id = req.params.id;
 
@@ -96,7 +96,7 @@ router.put('/orders/:id', async (req, res, next) => {
 });
 
 // Remove an order
-router.delete('/orders/:id', (req, res, next) => {
+router.delete('/api/orders/:id', (req, res, next) => {
 
     const id = req.params.id;
 
