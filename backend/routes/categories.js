@@ -5,13 +5,13 @@ const db = require('../models');
 const Category = db.Category;
 
 // Get all categories api
-router.get('/categories', async (req, res, next) => {
+router.get('/api/categories', async (req, res, next) => {
     const categories = await Category.findAll();
     return res.json(categories);
 });
 
 // Add a new category api
-router.post('/categories', (req, res, next) => {
+router.post('/api/categories', (req, res, next) => {
     const category = {
         category_name: req.body.category_name,
     };
@@ -30,7 +30,7 @@ router.post('/categories', (req, res, next) => {
 });
 
 // Get category by id
-router.get('/categories/:id', (req, res, next) => {
+router.get('/api/categories/:id', (req, res, next) => {
     const id = req.params.id;
     Category.findByPk(id)
         .then((data) => {
@@ -48,7 +48,7 @@ router.get('/categories/:id', (req, res, next) => {
 });
 
 // Update a category
-router.put("/categories/:id", function (req, res, next) {
+router.put("/api/categories/:id", function (req, res, next) {
 
     const id = req.params.id;
 
@@ -75,7 +75,7 @@ router.put("/categories/:id", function (req, res, next) {
 });
 
 // Remove a category
-router.delete('/categories/:id', (req, res, next) => {
+router.delete('/api/categories/:id', (req, res, next) => {
 
     const id = req.params.id;
 
