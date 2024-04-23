@@ -13,6 +13,13 @@ export class ProductListComponent {
   // Initialize products array
   products?: Product[];
 
+  // Initialize product object
+  product: Product = {
+    category_id: 0,
+    id: 0, product_name: '',
+    unit_price: 0
+  };
+
   // Constructor
   constructor(
     productService: ProductService,
