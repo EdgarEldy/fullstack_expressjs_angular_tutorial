@@ -3,6 +3,7 @@ import { Category } from '../../../models/category';
 import { CategoryService } from '../../../services/category.service';
 import { CategoryFormComponent } from '../category-form/category-form.component';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-list',
@@ -20,7 +21,10 @@ export class CategoryListComponent {
   };
 
   // Constructor
-  constructor(private categoryService: CategoryService, private modalService: NgbModal) {
+  constructor(
+    private categoryService: CategoryService,
+    private modalService: NgbModal,
+    private toastr: ToastrService) {
   }
 
   // ngOnInit
@@ -79,6 +83,8 @@ export class CategoryListComponent {
     if (confirm('Are you sure you want to delete this category?')) {
       await this.categoryService.delete(id).subscribe(() => {
         this.loadCategories();
+        // Display flash message
+        this.toastr.success('Category has been removed successfully !', 'Success');
       });
     }
   }

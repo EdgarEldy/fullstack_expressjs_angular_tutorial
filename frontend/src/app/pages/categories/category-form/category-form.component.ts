@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Category } from '../../../models/category';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from '../../../services/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-form',
@@ -15,7 +16,10 @@ export class CategoryFormComponent {
     category_name: ''
   };
 
-  constructor(private categoryService: CategoryService, public activeModal: NgbActiveModal) {
+  constructor(
+    private categoryService: CategoryService,
+    public activeModal: NgbActiveModal,
+    private toastr: ToastrService) {
   }
 
   // Save or update a category
@@ -29,7 +33,9 @@ export class CategoryFormComponent {
       await this.categoryService.create(data).subscribe({
         next: (res) => {
           console.log(res);
-          this.activeModal.close('Category has updated successfully');
+          this.activeModal.close();
+          // Display flash message
+          this.toastr.success('Category has been saved successfully !', 'Success');
         },
         error: (err) => {
           console.log(err);
@@ -40,7 +46,9 @@ export class CategoryFormComponent {
       await this.categoryService.update(this.category.id, this.category).subscribe({
         next: (res) => {
           console.log(res);
-          this.activeModal.close('Category has saved successfully');
+          this.activeModal.close();
+          // Display flash message
+          this.toastr.success('Category has been updated successfully !', 'Success');
         },
         error: (err) => {
           console.log(err);

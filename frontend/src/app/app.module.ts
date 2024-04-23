@@ -14,6 +14,8 @@ import { CategoryFormComponent } from './pages/categories/category-form/category
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { ProductFormComponent } from './pages/products/product-form/product-form
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, //required animations module
+    ToastrModule.forRoot({}) // required toastr module
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
