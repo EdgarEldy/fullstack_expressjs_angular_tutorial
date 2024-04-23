@@ -27,4 +27,9 @@ export class ProductService {
   create(data: any): Observable<any> {
     return this.http.post<Product>(this.baseUrl, data);
   }
+
+  // Update an existing product
+  update(id: any, data: any): Observable<any> {
+    return this.http.put<Product>(`${this.baseUrl}/${id}`, data);
+  }
 }
