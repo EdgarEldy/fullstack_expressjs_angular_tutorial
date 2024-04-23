@@ -30,7 +30,8 @@
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/sb-admin-2.min.css",
               "src/assets/css/dataTables.bootstrap4.min.css",
-              "src/assets/css/main.css"
+              "src/assets/css/main.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
