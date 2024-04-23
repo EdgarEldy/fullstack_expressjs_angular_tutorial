@@ -22,9 +22,9 @@ export class ProductListComponent {
 
   // Constructor
   constructor(
-    productService: ProductService,
-    modalService: NgbModal,
-    toastr: ToastrService
+    private readonly productService: ProductService,
+    private readonly modalService: NgbModal,
+    private readonly toastr: ToastrService
   ) {
   }
 }
