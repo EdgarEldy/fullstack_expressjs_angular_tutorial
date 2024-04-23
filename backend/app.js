@@ -41,10 +41,10 @@ app.put('/products/:id', productsRouter);
 app.delete('/products/:id', productsRouter);
 
 // Customers routes
-app.get('/customers', customersRouter);
-app.post('/customers', customersRouter);
-app.get('/customers/:id', customersRouter);
-app.put('/customers/:id', customersRouter);
-app.delete('/customers/:id', customersRouter);
+app.get('/api/customers', customersRouter);
+app.post('/api/customers', customersRouter);
+app.get('/api/customers/:id', customersRouter);
+app.put('/api/customers/:id', customersRouter);
+app.delete('/api/customers/:id', customersRouter);
 
 module.exports = app;
