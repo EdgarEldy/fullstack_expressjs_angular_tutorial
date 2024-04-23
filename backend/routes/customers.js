@@ -5,13 +5,13 @@ const db = require('../models');
 const Customer = db.Customer;
 
 // Get all customers api
-router.get('/customers', async (req, res, next) => {
+router.get('/api/customers', async (req, res, next) => {
     const customers = await Customer.findAll();
     return res.json(customers);
 });
 
 // Add a new customer api
-router.post('/customers', (req, res, next) => {
+router.post('/api/customers', (req, res, next) => {
     // Get customer's inputs
     const customer = {
         first_name: req.body.first_name,
@@ -35,7 +35,7 @@ router.post('/customers', (req, res, next) => {
 });
 
 // Get customer by id
-router.get('/customers/:id', (req, res, next) => {
+router.get('/api/customers/:id', (req, res, next) => {
     const id = req.params.id;
     Customer.findByPk(id)
         .then((data) => {
@@ -53,7 +53,7 @@ router.get('/customers/:id', (req, res, next) => {
 });
 
 // Update a customer
-router.put("/customers/:id", function (req, res, next) {
+router.put("/api/customers/:id", function (req, res, next) {
 
     const id = req.params.id;
 
@@ -80,7 +80,7 @@ router.put("/customers/:id", function (req, res, next) {
 });
 
 // Remove a customer
-router.delete('/customers/:id', (req, res, next) => {
+router.delete('/api/customers/:id', (req, res, next) => {
 
     const id = req.params.id;
 

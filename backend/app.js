@@ -30,25 +30,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('/categories', categoriesRouter);
-app.post('/categories', categoriesRouter);
-app.get('/categories/:id', categoriesRouter);
-app.put('/categories/:id', categoriesRouter);
-app.delete('/categories/:id', categoriesRouter);
+app.get('/api/categories', categoriesRouter);
+app.post('/api/categories', categoriesRouter);
+app.get('/api/categories/:id', categoriesRouter);
+app.put('/api/categories/:id', categoriesRouter);
+app.delete('/api/categories/:id', categoriesRouter);
 
 // Products routers
-app.get('/products', productsRouter);
-app.post('/products', productsRouter);
-app.get('/products/:id', productsRouter);
-app.put('/products/:id', productsRouter);
-app.delete('/products/:id', productsRouter);
+app.get('/api/products', productsRouter);
+app.post('/api/products', productsRouter);
+app.get('/api/products/:id', productsRouter);
+app.put('/api/products/:id', productsRouter);
+app.delete('/api/products/:id', productsRouter);
 
 // Customers routes
-app.get('/customers', customersRouter);
-app.post('/customers', customersRouter);
-app.get('/customers/:id', customersRouter);
-app.put('/customers/:id', customersRouter);
-app.delete('/customers/:id', customersRouter);
+app.get('/api/customers', customersRouter);
+app.post('/api/customers', customersRouter);
+app.get('/api/customers/:id', customersRouter);
+app.put('/api/customers/:id', customersRouter);
+app.delete('/api/customers/:id', customersRouter);
 
 // Orders routes
 app.get('/api/orders', ordersRouter);

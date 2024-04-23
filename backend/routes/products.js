@@ -9,7 +9,7 @@ const Category = db.Category;
 const Product = db.Product;
 
 // Get products with their categories api
-router.get('/products', async (req, res, next) => {
+router.get('/api/products', async (req, res, next) => {
     const products = await Product.findAll({
         include: [{
             model: Category,
@@ -21,7 +21,7 @@ router.get('/products', async (req, res, next) => {
 });
 
 // Create a new product
-router.post('/products', async (req, res, next) => {
+router.post('/api/products', async (req, res, next) => {
     // Create product object
     const product = {
         category_id: req.body.category_id,
@@ -44,7 +44,7 @@ router.post('/products', async (req, res, next) => {
 });
 
 // Get product by id
-router.get('/products/:id', (req, res, next) => {
+router.get('/api/products/:id', (req, res, next) => {
     const id = req.params.id;
 
     Product.findByPk(id)
@@ -63,7 +63,7 @@ router.get('/products/:id', (req, res, next) => {
 });
 
 // Update a product
-router.put('/products/:id', async (req, res, next) => {
+router.put('/api/products/:id', async (req, res, next) => {
 
     const id = req.params.id;
 
@@ -90,7 +90,7 @@ router.put('/products/:id', async (req, res, next) => {
 });
 
 // Remove a product
-router.delete('/products/:id', (req, res, next) => {
+router.delete('/api/products/:id', (req, res, next) => {
 
     const id = req.params.id;
 
