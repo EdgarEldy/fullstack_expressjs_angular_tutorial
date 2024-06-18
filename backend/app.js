@@ -21,10 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('/api/categories', categoriesRouter);
-app.post('/api/categories', categoriesRouter);
-app.get('/api/categories/:id', categoriesRouter);
-app.put('/api/categories/:id', categoriesRouter);
-app.delete('/api/categories/:id', categoriesRouter);
+app.use('/', categoriesRouter);
 
 module.exports = app;
